@@ -8,20 +8,40 @@ import android.view.Window
 import android.view.WindowManager.LayoutParams
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.detailsapp.databinding.ActivityMainBinding
 import com.example.detailsapp.databinding.LayoutMoreFiledsBinding
 import com.example.detailsapp.databinding.LayoutSampleFieldsBinding
+import com.example.detailsapp.db.AppDatabase
+import com.example.detailsapp.db.Details
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var factory: AppFactory
+    private lateinit var viewModel: AppViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        val dao = AppDatabase.getInstance(this).dao
+        factory = AppFactory(AppRepository(dao))
+        viewModel = ViewModelProvider(this, factory)[AppViewModel::class.java]
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.setHasFixedSize(true)
+
+
         binding.btnSimpleFileds.setOnClickListener(this)
         binding.btnMoreFileds.setOnClickListener(this)
         binding.btnProVersion.setOnClickListener(this)
+
+        viewModel.getAllDetails.observe(this, Observer {
+            val adapter = DetailsAdapter(it)
+            binding.recyclerView.adapter = adapter
+        })
     }
 
     override fun onClick(view: View?) {
@@ -45,7 +65,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 sampleFields.btnSubmit.setOnClickListener {
-                    // TODO: insert into db
+                    val detail = Details(0, sampleFields.tilName.editText!!.text.toString(), sampleFields.tilPhone1.editText!!.text.toString(),
+                    sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(), "", "", "")
+                    viewModel.insertDetails(detail)
+                    dialog.dismiss()
                 }
             }
 

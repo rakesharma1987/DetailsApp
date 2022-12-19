@@ -13,4 +13,5 @@ data class Details(
     val message: String,
     val email: String,
     val dob: String,
+    val address: String
 )
