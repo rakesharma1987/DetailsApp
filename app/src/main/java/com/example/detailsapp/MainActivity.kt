@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnProVersion.setOnClickListener(this)
 
         viewModel.getAllDetails.observe(this, Observer {
-            val adapter = DetailsAdapter(it)
+            val adapter = DetailsAdapter(this, it)
             binding.recyclerView.adapter = adapter
         })
     }
@@ -97,7 +97,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 sampleFields.btnSubmit.setOnClickListener {
                     val detail = Details(0, sampleFields.tilName.editText!!.text.toString(), sampleFields.tilPhone1.editText!!.text.toString(),
-                        sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(), "", "", "", isMore)
+                        sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(),
+                        sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilEmail.editText!!.text.toString(),
+                        sampleFields.tilMessage.editText!!.text.toString(), isMore)
                     viewModel.insertDetails(detail)
                     dialog.dismiss()
                 }

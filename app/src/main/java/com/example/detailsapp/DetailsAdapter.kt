@@ -1,5 +1,7 @@
 package com.example.detailsapp
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.detailsapp.databinding.LayoutCustomRecyclerviewBinding
 import com.example.detailsapp.db.Details
+import com.google.gson.Gson
 
-class DetailsAdapter(private val detailsList: List<Details>): RecyclerView.Adapter<DetailsAdapter.CustomViewHolder>() {
+class DetailsAdapter(private val context: Context, private val detailsList: List<Details>): RecyclerView.Adapter<DetailsAdapter.CustomViewHolder>() {
     inner class CustomViewHolder(val layoutCustomRecyclerviewBinding: LayoutCustomRecyclerviewBinding): RecyclerView.ViewHolder(layoutCustomRecyclerviewBinding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
@@ -22,7 +25,9 @@ class DetailsAdapter(private val detailsList: List<Details>): RecyclerView.Adapt
         holder.layoutCustomRecyclerviewBinding.tvDetails.text = "Name - ${details.name}"
 
         holder.layoutCustomRecyclerviewBinding.btnShow.setOnClickListener {
-
+            val intent = Intent(context, DetailsActivity::class.java)
+            intent.putExtra("DATA", Gson().toJson(details))
+            context.startActivity(intent)
         }
         holder.layoutCustomRecyclerviewBinding.btnEdit.setOnClickListener {
 

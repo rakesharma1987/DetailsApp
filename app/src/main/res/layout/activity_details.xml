@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailsActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_msg"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/big_txt_size"
+            android:text="Message"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_line_below_msg"
+            android:text="--------------"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_msg"
+            android:layout_margin="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_email"
+            app:layout_constraintTop_toBottomOf="@id/tv_line_below_msg"
+            android:textSize="@dimen/big_txt_size"
+            android:text="Email"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_line_below_email"
+            android:text="--------------"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_phone1"
+            app:layout_constraintTop_toBottomOf="@id/tv_line_below_email"
+            android:textSize="@dimen/big_txt_size"
+            android:text="Phone 1"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_phone2"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone1"
+            android:textSize="@dimen/big_txt_size"
+            android:text="Phone 2"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_line_below_phone"
+            android:text="--------------"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone2"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_address"
+            app:layout_constraintTop_toBottomOf="@id/tv_line_below_phone"
+            android:textSize="@dimen/big_txt_size"
+            android:text="Address"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_line_below_address"
+            android:text="--------------"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_address"
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dob"
+            app:layout_constraintTop_toBottomOf="@id/tv_line_below_address"
+            android:textSize="@dimen/big_txt_size"
+            android:text="DOB"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_line_below_dob"
+            android:text="--------------"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_dob"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_line_below_dob"
+            android:textSize="@dimen/big_txt_size"
+            android:text="Name"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/lato_bold" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
