@@ -19,17 +19,13 @@ class DetailsAdapter(private val detailsList: List<Details>): RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val details = detailsList[position]
+        holder.layoutCustomRecyclerviewBinding.tvDetails.text = "Name - ${details.name}"
+
         holder.layoutCustomRecyclerviewBinding.btnShow.setOnClickListener {
-            holder.layoutCustomRecyclerviewBinding.tvDetails.visibility = View.VISIBLE
-            holder.layoutCustomRecyclerviewBinding.btnShow.visibility = View.GONE
-            holder.layoutCustomRecyclerviewBinding.btnHide.visibility = View.VISIBLE
-            holder.layoutCustomRecyclerviewBinding.tvDetails.text = "Name: ${details.name} \n" +
-                    "Phone - 1: ${details.phoneNo1} \n" + "Phone - 2: ${details.phoneNo2} \n"+ "Message: ${details.message}"
+
         }
-        holder.layoutCustomRecyclerviewBinding.btnHide.setOnClickListener {
-            holder.layoutCustomRecyclerviewBinding.tvDetails.visibility = View.GONE
-            holder.layoutCustomRecyclerviewBinding.btnHide.visibility = View.GONE
-            holder.layoutCustomRecyclerviewBinding.btnShow.visibility = View.VISIBLE
+        holder.layoutCustomRecyclerviewBinding.btnEdit.setOnClickListener {
+
         }
 
     }

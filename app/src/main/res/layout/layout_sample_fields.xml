@@ -24,7 +24,7 @@
                 android:textAlignment="center"
                 android:gravity="center_vertical"
                 tools:ignore="RtlCompat"
-                android:textStyle="bold"
+                android:fontFamily="@font/lato_bold"
                 android:textColor="@color/white" />
             <ImageView
                 android:id="@+id/iv_close"
@@ -49,7 +49,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences" />
+                    android:inputType="textCapSentences"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="@dimen/txt_size"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -63,7 +65,9 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences" />
+                    android:inputType="textCapSentences"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="@dimen/txt_size"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -77,14 +81,72 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences" />
+                    android:inputType="textCapSentences"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="@dimen/txt_size"/>
             </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_more_fields"
+                android:layout_below="@id/til_phone_2"
+                android:orientation="vertical">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til_email"
+                    android:layout_below="@id/til_phone_2"
+                    android:hint="Email"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:fontFamily="@font/lato_regular"
+                        android:textSize="@dimen/txt_size"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til_address"
+                    android:hint="Address"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:inputType="textMultiLine"
+                        android:maxLines="2"
+                        android:fontFamily="@font/lato_regular"
+                        android:textSize="@dimen/txt_size"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til_dob"
+                    android:hint="Dob"
+                    app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
+                    app:endIconMode="custom"
+                    app:endIconTint="@color/purple_500"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:fontFamily="@font/lato_regular"
+                        android:textSize="@dimen/txt_size"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/til_message"
-                android:layout_below="@id/til_phone_2"
+                android:layout_below="@id/ll_more_fields"
                 android:hint="Message"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
@@ -92,7 +154,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:inputType="textMultiLine"
-                    android:maxLines="5" />
+                    android:maxLines="5"
+                    android:fontFamily="@font/lato_regular"
+                    android:textSize="@dimen/txt_size"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -102,7 +166,9 @@
                 android:text="Save"
                 android:layout_below="@id/til_message"
                 android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp" />
+                android:layout_marginRight="100dp"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="@dimen/big_txt_size"/>
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

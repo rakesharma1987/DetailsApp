@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var factory: AppFactory
     private lateinit var viewModel: AppViewModel
+    private var isMore: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view!!.id) {
             R.id.btn_simple_fileds -> {
+                isMore = false
                 val dialog = Dialog(this)
                 dialog.setCancelable(false)
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     null,
                     false
                 )
+                sampleFields.llMoreFields.visibility = View.GONE
                 dialog.setContentView(sampleFields.root)
                 dialog.show()
                 dialog.window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
@@ -66,32 +69,37 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
                 sampleFields.btnSubmit.setOnClickListener {
                     val detail = Details(0, sampleFields.tilName.editText!!.text.toString(), sampleFields.tilPhone1.editText!!.text.toString(),
-                    sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(), "", "", "")
+                    sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(), "", "", "", isMore)
                     viewModel.insertDetails(detail)
                     dialog.dismiss()
                 }
             }
 
             R.id.btn_more_fileds -> {
+                isMore = true
                 val dialog = Dialog(this)
                 dialog.setCancelable(false)
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                val moreFilds: LayoutMoreFiledsBinding = DataBindingUtil.inflate(
+                val sampleFields: LayoutSampleFieldsBinding = DataBindingUtil.inflate(
                     LayoutInflater.from(dialog.context),
-                    R.layout.layout_more_fileds,
+                    R.layout.layout_sample_fields,
                     null,
                     false
                 )
-                dialog.setContentView(moreFilds.root)
+                sampleFields.llMoreFields.visibility = View.VISIBLE
+                dialog.setContentView(sampleFields.root)
                 dialog.show()
                 dialog.window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
 
-                moreFilds.ivClose.setOnClickListener {
+                sampleFields.ivClose.setOnClickListener {
                     dialog.dismiss()
                 }
 
-                moreFilds.btnSubmit.setOnClickListener {
-                    // TODO: insert into db
+                sampleFields.btnSubmit.setOnClickListener {
+                    val detail = Details(0, sampleFields.tilName.editText!!.text.toString(), sampleFields.tilPhone1.editText!!.text.toString(),
+                        sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(), "", "", "", isMore)
+                    viewModel.insertDetails(detail)
+                    dialog.dismiss()
                 }
             }
 
