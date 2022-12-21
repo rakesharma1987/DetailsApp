@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     val detail = Details(0, sampleFields.tilName.editText!!.text.toString(), sampleFields.tilPhone1.editText!!.text.toString(),
                         sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilMessage.editText!!.text.toString(),
                         sampleFields.tilPhone2.editText!!.text.toString(), sampleFields.tilEmail.editText!!.text.toString(),
-                        sampleFields.tilMessage.editText!!.text.toString(), isMore)
+                        sampleFields.tilAddress.editText!!.text.toString(), isMore)
                     viewModel.insertDetails(detail)
                     dialog.dismiss()
                 }
