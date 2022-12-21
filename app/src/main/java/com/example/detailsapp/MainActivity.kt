@@ -40,8 +40,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnProVersion.setOnClickListener(this)
 
         viewModel.getAllDetails.observe(this, Observer {
-            val adapter = DetailsAdapter(this, it)
-            binding.recyclerView.adapter = adapter
+            if (it.isEmpty()){
+                var list = mutableListOf<Details>()
+                list.add(Details(0, "Name 1", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 2", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 3", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 4", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 5", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 6", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 7", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 8", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 9", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 10", "", "", "", "", "", "", false))
+                val adapter = DetailsAdapter(this, list)
+                binding.recyclerView.adapter = adapter
+            }else {
+                var listTemp = mutableListOf<Details>()
+                for (item in it){
+                    listTemp.add(item)
+                }
+                if (listTemp.size < 10){
+                    for (i in listTemp.size..9){
+                        listTemp.add(Details(i+1, "Name ${i+1}", "", "", "", "", "", "", false))
+                    }
+                }
+                val adapter = DetailsAdapter(this, listTemp)
+                binding.recyclerView.adapter = adapter
+            }
         })
     }
 

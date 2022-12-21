@@ -6,13 +6,13 @@ import androidx.room.PrimaryKey
 @Entity
 data class Details(
     @PrimaryKey(autoGenerate = true)
-    val userId: Int,
-    val name: String,
-    val phoneNo1: String,
-    val phoneNo2: String,
-    val message: String,
-    val email: String,
-    val dob: String,
-    val address: String,
-    val isMore: Boolean
+    var userId: Int = 0,
+    var name: String = "null",
+    var phoneNo1: String = "null",
+    var phoneNo2: String = "null",
+    var message: String = "null",
+    var email: String = "null",
+    var dob: String = "null",
+    var address: String = "null",
+    var isMore: Boolean = false
 )

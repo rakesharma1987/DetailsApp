@@ -2,6 +2,7 @@ package com.example.detailsapp
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.detailsapp.databinding.LayoutCustomRecyclerviewBinding
 import com.example.detailsapp.db.Details
 import com.google.gson.Gson
+import java.util.Random
 
 class DetailsAdapter(private val context: Context, private val detailsList: List<Details>): RecyclerView.Adapter<DetailsAdapter.CustomViewHolder>() {
     inner class CustomViewHolder(val layoutCustomRecyclerviewBinding: LayoutCustomRecyclerviewBinding): RecyclerView.ViewHolder(layoutCustomRecyclerviewBinding.root)
@@ -21,6 +23,9 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
+        val random = Random()
+        val currectColor = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+        holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(currectColor)
         val details = detailsList[position]
         holder.layoutCustomRecyclerviewBinding.tvDetails.text = "Name - ${details.name}"
 
