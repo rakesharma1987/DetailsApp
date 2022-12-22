@@ -12,7 +12,15 @@ class AppViewModel(private val appRepository: AppRepository): ViewModel() {
         }
     }
 
+    fun updateDetails(details: Details){
+        viewModelScope.launch {
+            appRepository.updateDetails(details)
+        }
+    }
+
     val getAllDetails = appRepository.allDetails
 
     val getAllAdvancedDetails = appRepository.allAdvancedDetails
+
+
 }

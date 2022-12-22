@@ -10,4 +10,8 @@ class AppRepository(private val appDao: AppDao) {
     suspend fun insertDetail(details: Details){
         appDao.insertDetails(details)
     }
+
+    suspend fun updateDetails(details: Details){
+        appDao.updateDetails(details)
+    }
 }

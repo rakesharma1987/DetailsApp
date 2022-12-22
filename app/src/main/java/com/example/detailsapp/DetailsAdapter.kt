@@ -1,14 +1,14 @@
 package com.example.detailsapp
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.detailsapp.databinding.LayoutCustomRecyclerviewBinding
+import com.example.detailsapp.databinding.LayoutSampleFieldsBinding
 import com.example.detailsapp.db.Details
 import com.google.gson.Gson
 import java.util.Random
@@ -24,7 +24,8 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val random = Random()
-        val currectColor = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+        val currectColor =
+            Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
         holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(currectColor)
         val details = detailsList[position]
         holder.layoutCustomRecyclerviewBinding.tvDetails.text = "Name - ${details.name}"
@@ -35,9 +36,74 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
             context.startActivity(intent)
         }
         holder.layoutCustomRecyclerviewBinding.btnEdit.setOnClickListener {
+            val dialog = Dialog(context)
+            dialog.setCancelable(false)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            val sampleFields: LayoutSampleFieldsBinding = DataBindingUtil.inflate(
+                LayoutInflater.from(dialog.context),
+                R.layout.layout_sample_fields,
+                null,
+                false
+            )
+            if (details.isMore) {
+                sampleFields.llMoreFields.visibility = View.VISIBLE
+                sampleFields.tilName.editText!!.setText(details.name)
+                sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
+                sampleFields.tilPhone2.editText!!.setText(details.phoneNo2)
+                sampleFields.tilEmail.editText!!.setText(details.email)
+                sampleFields.tilDob.editText!!.setText(details.dob)
+                sampleFields.tilAddress.editText!!.setText(details.address)
+                sampleFields.tilMessage.editText!!.setText(details.message)
+            } else {
+                sampleFields.llMoreFields.visibility = View.GONE
+                sampleFields.tilName.editText!!.setText(details.name)
+                sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
+                sampleFields.tilPhone2.editText!!.setText(details.phoneNo2)
+                sampleFields.tilMessage.editText!!.setText(details.message)
+            }
+            dialog.setContentView(sampleFields.root)
+            dialog.show()
+            dialog.window!!.setLayout(
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+
+            sampleFields.ivClose.setOnClickListener {
+                dialog.dismiss()
+            }
+
+            sampleFields.btnSubmit.setOnClickListener {
+                if (details.isMore) {
+                    val detail = Details(
+                        details.userId,
+                        sampleFields.tilName.editText!!.text.toString(),
+                        sampleFields.tilPhone1.editText!!.text.toString(),
+                        sampleFields.tilPhone2.editText!!.text.toString(),
+                        sampleFields.tilMessage.editText!!.text.toString(),
+                        "",
+                        "",
+                        "",
+                        details.isMore
+                    )
+                    (context as MainActivity).viewModel.updateDetails(detail)
+                } else {
+                    val detail = Details(
+                        details.userId,
+                        sampleFields.tilName.editText!!.text.toString(),
+                        sampleFields.tilPhone1.editText!!.text.toString(),
+                        sampleFields.tilPhone2.editText!!.text.toString(),
+                        sampleFields.tilMessage.editText!!.text.toString(),
+                        "",
+                        "",
+                        "",
+                        details.isMore
+                    )
+                    (context as MainActivity).viewModel.updateDetails(detail)
+                }
+                dialog.dismiss()
+            }
 
         }
-
     }
 
     override fun getItemCount(): Int {

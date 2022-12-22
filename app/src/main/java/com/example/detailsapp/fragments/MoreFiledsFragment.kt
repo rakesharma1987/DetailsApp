@@ -38,16 +38,16 @@ class MoreFiledsFragment : Fragment() {
         viewModel.getAllAdvancedDetails.observe(viewLifecycleOwner, Observer {
             if (it.isEmpty()){
                 var list = mutableListOf<Details>()
-                list.add(Details(0, "Name 1", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 2", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 3", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 4", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 5", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 6", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 7", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 8", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 9", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 10", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 1", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 2", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 3", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 4", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 5", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 6", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 7", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 8", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 9", "", "", "", "", "", "", true))
+                list.add(Details(0, "Name 10", "", "", "", "", "", "", true))
                 val adapter = DetailsAdapter(requireContext(), list)
                 binding.recyclerViewMoreFields.adapter = adapter
             }else {
@@ -57,7 +57,7 @@ class MoreFiledsFragment : Fragment() {
                 }
                 if (listTemp.size < 10){
                     for (i in listTemp.size..9){
-                        listTemp.add(Details(i+1, "Name ${i+1}", "", "", "", "", "", "", false))
+                        listTemp.add(Details(i+1, "Name ${i+1}", "", "", "", "", "", "", true))
                     }
                 }
                 val adapter = DetailsAdapter(requireContext(), listTemp)

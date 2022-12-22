@@ -25,7 +25,7 @@ import com.example.detailsapp.fragments.SimpleFieldsFragment
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var factory: AppFactory
-    private lateinit var viewModel: AppViewModel
+    lateinit var viewModel: AppViewModel
     private var isMore: Boolean = false
     private lateinit var fragmentManager: FragmentManager
     private var isAddSimpleFields: Boolean = false
