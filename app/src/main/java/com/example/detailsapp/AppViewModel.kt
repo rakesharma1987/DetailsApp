@@ -13,4 +13,6 @@ class AppViewModel(private val appRepository: AppRepository): ViewModel() {
     }
 
     val getAllDetails = appRepository.allDetails
+
+    val getAllAdvancedDetails = appRepository.allAdvancedDetails
 }

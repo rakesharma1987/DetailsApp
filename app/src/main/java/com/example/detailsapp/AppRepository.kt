@@ -5,6 +5,7 @@ import com.example.detailsapp.db.Details
 
 class AppRepository(private val appDao: AppDao) {
     val allDetails = appDao.getAllData()
+    val allAdvancedDetails = appDao.getAllAdvancedData()
 
     suspend fun insertDetail(details: Details){
         appDao.insertDetails(details)

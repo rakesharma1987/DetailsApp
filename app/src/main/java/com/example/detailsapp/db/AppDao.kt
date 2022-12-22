@@ -12,6 +12,11 @@ interface AppDao {
     @Insert(onConflict = REPLACE)
     suspend fun insertDetails(details: Details)
 
-    @Query("SELECT * FROM details")
+    @Query("SELECT * FROM details WHERE isMore = 0")
     fun getAllData(): LiveData<List<Details>>
+
+    @Query("SELECT * FROM details WHERE isMore = 1")
+    fun getAllAdvancedData(): LiveData<List<Details>>
+
+
 }

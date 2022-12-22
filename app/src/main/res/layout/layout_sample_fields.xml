@@ -65,9 +65,10 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences"
+                    android:inputType="phone"
                     android:fontFamily="@font/lato_regular"
-                    android:textSize="@dimen/txt_size"/>
+                    android:textSize="@dimen/txt_size"
+                    android:maxLength="10"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -81,9 +82,10 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences"
+                    android:inputType="phone"
                     android:fontFamily="@font/lato_regular"
-                    android:textSize="@dimen/txt_size"/>
+                    android:textSize="@dimen/txt_size"
+                    android:maxLength="10"/>
             </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,7 +104,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textCapSentences"
+                        android:inputType="textEmailAddress"
                         android:fontFamily="@font/lato_regular"
                         android:textSize="@dimen/txt_size"/>
                 </com.google.android.material.textfield.TextInputLayout>
