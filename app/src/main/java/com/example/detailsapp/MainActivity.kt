@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var factory: AppFactory
     lateinit var viewModel: AppViewModel
-    private var isMore: Boolean = false
+    var isMore: Boolean = false
     private lateinit var fragmentManager: FragmentManager
     private var isAddSimpleFields: Boolean = false
     private var isAddMoreFields: Boolean = false
@@ -56,8 +56,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_simple_fileds -> {
                 binding.btnMoreFileds.setBackgroundColor(getColor(R.color.btn_non_selected_color))
                 binding.btnSimpleFileds.setBackgroundColor(getColor(R.color.purple_500))
-                binding.btnMoreFileds.text = "More Fields"
-                isAddMoreFields = false
 
                 var fragmetnTransaction = fragmentManager.beginTransaction()
                 for (fragment in fragmentManager.fragments){
@@ -65,49 +63,43 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 fragmetnTransaction.add(R.id.fragment_container, SimpleFieldsFragment())
                 fragmetnTransaction.commit()
-                if (isAddSimpleFields) {
-                    isMore = false
-                    val dialog = Dialog(this)
-                    dialog.setCancelable(false)
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                    val sampleFields: LayoutSampleFieldsBinding = DataBindingUtil.inflate(
-                        LayoutInflater.from(dialog.context),
-                        R.layout.layout_sample_fields,
-                        null,
-                        false
-                    )
-                    sampleFields.llMoreFields.visibility = View.GONE
-                    dialog.setContentView(sampleFields.root)
-                    dialog.show()
-                    dialog.window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-
-                    sampleFields.ivClose.setOnClickListener {
-                        dialog.dismiss()
-                    }
-
-                    sampleFields.btnSubmit.setOnClickListener {
-                        val detail = Details(
-                            0,
-                            sampleFields.tilName.editText!!.text.toString(),
-                            sampleFields.tilPhone1.editText!!.text.toString(),
-                            sampleFields.tilPhone2.editText!!.text.toString(),
-                            sampleFields.tilMessage.editText!!.text.toString(),
-                            "",
-                            "",
-                            "",
-                            isMore
-                        )
-                        viewModel.insertDetails(detail)
-                        dialog.dismiss()
-                    }
-                }
-                binding.btnSimpleFileds.text = "Add Simple Fileds"
-                isAddSimpleFields = true
+                isMore = false
+//                    val dialog = Dialog(this)
+//                    dialog.setCancelable(false)
+//                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//                    val sampleFields: LayoutSampleFieldsBinding = DataBindingUtil.inflate(
+//                        LayoutInflater.from(dialog.context),
+//                        R.layout.layout_sample_fields,
+//                        null,
+//                        false
+//                    )
+//                    sampleFields.llMoreFields.visibility = View.GONE
+//                    dialog.setContentView(sampleFields.root)
+//                    dialog.show()
+//                    dialog.window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+//
+//                    sampleFields.ivClose.setOnClickListener {
+//                        dialog.dismiss()
+//                    }
+//
+//                    sampleFields.btnSubmit.setOnClickListener {
+//                        val detail = Details(
+//                            0,
+//                            sampleFields.tilName.editText!!.text.toString(),
+//                            sampleFields.tilPhone1.editText!!.text.toString(),
+//                            sampleFields.tilPhone2.editText!!.text.toString(),
+//                            sampleFields.tilMessage.editText!!.text.toString(),
+//                            "",
+//                            "",
+//                            "",
+//                            isMore
+//                        )
+//                        viewModel.insertDetails(detail)
+//                        dialog.dismiss()
+//                    }
             }
 
             R.id.btn_more_fileds -> {
-                binding.btnSimpleFileds.text = "Simple Fields"
-                isAddSimpleFields = false
                 binding.btnMoreFileds.setBackgroundColor(getColor(R.color.purple_500))
                 binding.btnSimpleFileds.setBackgroundColor(getColor(R.color.btn_non_selected_color))
                 var fragmetnTransaction1 = fragmentManager.beginTransaction()
@@ -116,45 +108,40 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 fragmetnTransaction1.add(R.id.fragment_container, MoreFiledsFragment())
                 fragmetnTransaction1.commit()
-
-                if (binding.btnMoreFileds.text.equals("Add More Fields")) {
-                    isMore = true
-                    val dialog = Dialog(this)
-                    dialog.setCancelable(false)
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                    val sampleFields: LayoutSampleFieldsBinding = DataBindingUtil.inflate(
-                        LayoutInflater.from(dialog.context),
-                        R.layout.layout_sample_fields,
-                        null,
-                        false
-                    )
-                    sampleFields.llMoreFields.visibility = View.VISIBLE
-                    dialog.setContentView(sampleFields.root)
-                    dialog.show()
-                    dialog.window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-
-                    sampleFields.ivClose.setOnClickListener {
-                        dialog.dismiss()
-                    }
-
-                    sampleFields.btnSubmit.setOnClickListener {
-                        val detail = Details(
-                            0,
-                            sampleFields.tilName.editText!!.text.toString(),
-                            sampleFields.tilPhone1.editText!!.text.toString(),
-                            sampleFields.tilPhone2.editText!!.text.toString(),
-                            sampleFields.tilMessage.editText!!.text.toString(),
-                            sampleFields.tilPhone2.editText!!.text.toString(),
-                            sampleFields.tilEmail.editText!!.text.toString(),
-                            sampleFields.tilAddress.editText!!.text.toString(),
-                            isMore
-                        )
-                        viewModel.insertDetails(detail)
-                        dialog.dismiss()
-                    }
-                }
-                binding.btnMoreFileds.text = "Add More Fields"
-                isAddMoreFields = true
+                isMore = true
+//                    val dialog = Dialog(this)
+//                    dialog.setCancelable(false)
+//                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//                    val sampleFields: LayoutSampleFieldsBinding = DataBindingUtil.inflate(
+//                        LayoutInflater.from(dialog.context),
+//                        R.layout.layout_sample_fields,
+//                        null,
+//                        false
+//                    )
+//                    sampleFields.llMoreFields.visibility = View.VISIBLE
+//                    dialog.setContentView(sampleFields.root)
+//                    dialog.show()
+//                    dialog.window!!.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+//
+//                    sampleFields.ivClose.setOnClickListener {
+//                        dialog.dismiss()
+//                    }
+//
+//                    sampleFields.btnSubmit.setOnClickListener {
+//                        val detail = Details(
+//                            0,
+//                            sampleFields.tilName.editText!!.text.toString(),
+//                            sampleFields.tilPhone1.editText!!.text.toString(),
+//                            sampleFields.tilPhone2.editText!!.text.toString(),
+//                            sampleFields.tilMessage.editText!!.text.toString(),
+//                            sampleFields.tilPhone2.editText!!.text.toString(),
+//                            sampleFields.tilEmail.editText!!.text.toString(),
+//                            sampleFields.tilAddress.editText!!.text.toString(),
+//                            isMore
+//                        )
+//                        viewModel.insertDetails(detail)
+//                        dialog.dismiss()
+//                    }
             }
 
             R.id.btn_pro_version -> {

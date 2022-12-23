@@ -37,16 +37,16 @@ class SimpleFieldsFragment : Fragment() {
         viewModel.getAllDetails.observe(viewLifecycleOwner, Observer {
             if (it.isEmpty()){
                 var list = mutableListOf<Details>()
-                list.add(Details(0, "Name 1", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 2", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 3", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 4", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 5", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 6", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 7", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 8", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 9", "", "", "", "", "", "", false))
-                list.add(Details(0, "Name 10", "", "", "", "", "", "", false))
+                list.add(Details(0, "Name 1", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 2", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 3", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 4", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 5", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 6", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 7", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 8", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 9", "", "", "", "", "", "", false, true))
+                list.add(Details(0, "Name 10", "", "", "", "", "", "", false, true))
                 val adapter = DetailsAdapter(requireContext(), list)
                 binding.recyclerView.adapter = adapter
             }else {
@@ -56,7 +56,7 @@ class SimpleFieldsFragment : Fragment() {
                 }
                 if (listTemp.size < 10){
                     for (i in listTemp.size..9){
-                        listTemp.add(Details(i+1, "Name ${i+1}", "", "", "", "", "", "", false))
+                        listTemp.add(Details(i+1, "Name ${i+1}", "", "", "", "", "", "", false, true))
                     }
                 }
                 val adapter = DetailsAdapter(requireContext(), listTemp)

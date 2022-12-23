@@ -14,5 +14,6 @@ data class Details(
     var email: String = "null",
     var dob: String = "null",
     var address: String = "null",
-    var isMore: Boolean = false
+    var isMore: Boolean = false,
+    var isNew: Boolean = false
 )

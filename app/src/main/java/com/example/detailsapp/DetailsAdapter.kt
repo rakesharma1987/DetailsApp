@@ -45,21 +45,29 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
                 null,
                 false
             )
+            if (details.isNew) sampleFields.tvTitle.text = "Enter Details"
+            else sampleFields.tvTitle.text = "Update Details"
             if (details.isMore) {
                 sampleFields.llMoreFields.visibility = View.VISIBLE
-                sampleFields.tilName.editText!!.setText(details.name)
-                sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
-                sampleFields.tilPhone2.editText!!.setText(details.phoneNo2)
-                sampleFields.tilEmail.editText!!.setText(details.email)
-                sampleFields.tilDob.editText!!.setText(details.dob)
-                sampleFields.tilAddress.editText!!.setText(details.address)
-                sampleFields.tilMessage.editText!!.setText(details.message)
+                if (!details.isNew) {
+                    sampleFields.tilName.editText!!.setText(details.name)
+                    sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
+                    sampleFields.tilPhone2.editText!!.setText(details.phoneNo2)
+                    sampleFields.tilEmail.editText!!.setText(details.email)
+                    sampleFields.tilDob.editText!!.setText(details.dob)
+                    sampleFields.tilAddress.editText!!.setText(details.address)
+                    sampleFields.tilMessage.editText!!.setText(details.message)
+                }
             } else {
-                sampleFields.llMoreFields.visibility = View.GONE
-                sampleFields.tilName.editText!!.setText(details.name)
-                sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
-                sampleFields.tilPhone2.editText!!.setText(details.phoneNo2)
-                sampleFields.tilMessage.editText!!.setText(details.message)
+                if (details.isNew) {
+                    sampleFields.llMoreFields.visibility = View.GONE
+                }else{
+                    sampleFields.llMoreFields.visibility = View.GONE
+                    sampleFields.tilName.editText!!.setText(details.name)
+                    sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
+                    sampleFields.tilPhone2.editText!!.setText(details.phoneNo2)
+                    sampleFields.tilMessage.editText!!.setText(details.message)
+                }
             }
             dialog.setContentView(sampleFields.root)
             dialog.show()
@@ -80,12 +88,17 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
                         sampleFields.tilPhone1.editText!!.text.toString(),
                         sampleFields.tilPhone2.editText!!.text.toString(),
                         sampleFields.tilMessage.editText!!.text.toString(),
-                        "",
-                        "",
-                        "",
-                        details.isMore
+                        sampleFields.tilEmail.editText!!.text.toString(),
+                        sampleFields.tilDob.editText!!.text.toString(),
+                        sampleFields.tilAddress.editText!!.text.toString(),
+                        details.isMore,
+                        false
                     )
-                    (context as MainActivity).viewModel.updateDetails(detail)
+                    if(details.isNew){
+                        (context as MainActivity).viewModel.insertDetails(detail)
+                    } else{
+                        (context as MainActivity).viewModel.updateDetails(detail)
+                    }
                 } else {
                     val detail = Details(
                         details.userId,
@@ -96,9 +109,14 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
                         "",
                         "",
                         "",
-                        details.isMore
+                        details.isMore,
+                        false
                     )
-                    (context as MainActivity).viewModel.updateDetails(detail)
+                    if(details.isNew){
+                        (context as MainActivity).viewModel.insertDetails(detail)
+                    } else{
+                        (context as MainActivity).viewModel.updateDetails(detail)
+                    }
                 }
                 dialog.dismiss()
             }
