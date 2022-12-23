@@ -1,17 +1,22 @@
 package com.example.detailsapp
 
+import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.view.*
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.detailsapp.databinding.LayoutCustomRecyclerviewBinding
 import com.example.detailsapp.databinding.LayoutSampleFieldsBinding
 import com.example.detailsapp.db.Details
 import com.google.gson.Gson
+import java.util.Calendar
 import java.util.Random
+import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class DetailsAdapter(private val context: Context, private val detailsList: List<Details>): RecyclerView.Adapter<DetailsAdapter.CustomViewHolder>() {
     inner class CustomViewHolder(val layoutCustomRecyclerviewBinding: LayoutCustomRecyclerviewBinding): RecyclerView.ViewHolder(layoutCustomRecyclerviewBinding.root)
@@ -22,6 +27,7 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
         return CustomViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val random = Random()
         val currectColor =
@@ -49,6 +55,20 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
             else sampleFields.tvTitle.text = "Update Details"
             if (details.isMore) {
                 sampleFields.llMoreFields.visibility = View.VISIBLE
+                sampleFields.etDob.setOnClickListener {
+                    val c = Calendar.getInstance()
+                    val year = c.get(Calendar.YEAR)
+                    val month = c.get(Calendar.MONTH)
+                    val day = c.get(Calendar.DAY_OF_MONTH)
+
+
+                    val dpd = DatePickerDialog(context, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                        sampleFields.tilDob.editText!!.setText("" + dayOfMonth + "/" + dayOfMonth.plus(1) + "/" + year)
+
+                    }, year, month, day)
+
+                    dpd.show()
+                }
                 if (!details.isNew) {
                     sampleFields.tilName.editText!!.setText(details.name)
                     sampleFields.tilPhone1.editText!!.setText(details.phoneNo1)
