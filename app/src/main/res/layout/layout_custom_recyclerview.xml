@@ -42,7 +42,8 @@
                 android:layout_marginRight="5dp"
                 android:text="Show"
                 app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/lato_regular"/>
+                android:fontFamily="@font/lato_regular"
+                android:backgroundTint="#F96666"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +52,8 @@
                 android:layout_marginRight="5dp"
                 android:text="Edit"
                 app:layout_constraintTop_toBottomOf="@id/btn_show"
-                android:fontFamily="@font/lato_regular"/>
+                android:fontFamily="@font/lato_regular"
+                android:backgroundTint="#F96666"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

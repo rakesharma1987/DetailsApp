@@ -49,7 +49,8 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
-                android:fontFamily="@font/lato_regular"/>
+                android:fontFamily="@font/lato_regular"
+                android:backgroundTint="#8D72E1"/>
         </LinearLayout>
 
 <!--        <androidx.recyclerview.widget.RecyclerView-->

@@ -34,7 +34,7 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
             Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
         holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(currectColor)
         val details = detailsList[position]
-        holder.layoutCustomRecyclerviewBinding.tvDetails.text = "Name - ${details.name}"
+        holder.layoutCustomRecyclerviewBinding.tvDetails.text = "${details.name}"
 
         holder.layoutCustomRecyclerviewBinding.btnShow.setOnClickListener {
             (context as MainActivity).interstitialAd.show()

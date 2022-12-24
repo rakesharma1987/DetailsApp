@@ -13,7 +13,7 @@
         tools:context=".DetailsActivity"
         android:layout_margin="10dp"
         android:background="@drawable/big_card"
-        android:backgroundTint="#E5DCDC">
+        android:backgroundTint="#FFFFFF">
 
         <TextView
             android:layout_width="match_parent"
@@ -23,19 +23,17 @@
             android:textSize="@dimen/big_txt_size"
             android:text="Message"
             android:layout_margin="20dp"
-            android:fontFamily="@font/lato_bold" />
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_line_below_msg"
-            android:text="--------------"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
+            android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
             app:layout_constraintTop_toBottomOf="@id/tv_msg"
-            android:layout_margin="20dp" />
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -45,16 +43,14 @@
             android:textSize="@dimen/big_txt_size"
             android:text="Email"
             android:layout_margin="20dp"
-            android:fontFamily="@font/lato_bold" />
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_line_below_email"
-            android:text="--------------"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
+            android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
             app:layout_constraintTop_toBottomOf="@id/tv_email"
             android:layout_marginTop="20dp" />
@@ -67,7 +63,8 @@
             android:textSize="@dimen/big_txt_size"
             android:text="Phone 1"
             android:layout_margin="20dp"
-            android:fontFamily="@font/lato_bold" />
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -76,17 +73,17 @@
             app:layout_constraintTop_toBottomOf="@id/tv_phone1"
             android:textSize="@dimen/big_txt_size"
             android:text="Phone 2"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/lato_bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_line_below_phone"
-            android:text="--------------"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
+            android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
             app:layout_constraintTop_toBottomOf="@id/tv_phone2"
             android:layout_marginTop="20dp" />
@@ -99,16 +96,14 @@
             android:textSize="@dimen/big_txt_size"
             android:text="Address"
             android:layout_margin="20dp"
-            android:fontFamily="@font/lato_bold" />
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_line_below_address"
-            android:text="--------------"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
+            android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
             app:layout_constraintTop_toBottomOf="@id/tv_address"
             android:layout_marginTop="20dp" />
@@ -120,15 +115,13 @@
             android:textSize="@dimen/big_txt_size"
             android:text="DOB"
             android:layout_margin="20dp"
-            android:fontFamily="@font/lato_bold" />
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_line_below_dob"
-            android:text="--------------"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
+            android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
             app:layout_constraintTop_toBottomOf="@id/tv_dob"
             android:layout_marginTop="20dp" />
@@ -141,7 +134,8 @@
             android:textSize="@dimen/big_txt_size"
             android:text="Name"
             android:layout_margin="20dp"
-            android:fontFamily="@font/lato_bold" />
+            android:fontFamily="@font/lato_bold"
+            android:textColor="@color/black"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

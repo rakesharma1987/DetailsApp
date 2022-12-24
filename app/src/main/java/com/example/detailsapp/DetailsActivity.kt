@@ -17,13 +17,13 @@ class DetailsActivity : AppCompatActivity() {
         val data = intent.getStringExtra("DATA")
         val detail = Gson().fromJson(data, Details::class.java)
         if (detail.isMore){
-            binding.tvName.text = detail.name
-            binding.tvPhone1.text = detail.phoneNo1
-            if (detail.phoneNo2.isNotEmpty()) binding.tvPhone2.text = detail.phoneNo2
-            binding.tvMsg.text = detail.message
-            binding.tvEmail.text = detail.email
-            binding.tvAddress.text = detail.address
-            binding.tvDob.text = detail.dob
+            binding.tvName.text = "Name: ${detail.name}"
+            binding.tvPhone1.text = "Phone 1: ${detail.phoneNo1}"
+            binding.tvPhone2.text = "Phone 2: ${detail.phoneNo2}"
+            binding.tvMsg.text = "Message: \n${detail.message}"
+            binding.tvEmail.text = "Email: ${detail.email}"
+            binding.tvAddress.text = "Address: ${detail.address}"
+            binding.tvDob.text = "Dob: ${detail.dob}"
         }else{
             binding.tvAddress.visibility = GONE
             binding.tvLineBelowAddress.visibility = GONE
@@ -32,10 +32,10 @@ class DetailsActivity : AppCompatActivity() {
             binding.tvDob.visibility = GONE
             binding.tvLineBelowDob.visibility = GONE
 
-            binding.tvName.text = detail.name
-            binding.tvPhone1.text = detail.phoneNo1
-            if (detail.phoneNo2.isNotEmpty()) binding.tvPhone2.text = detail.phoneNo2
-            binding.tvMsg.text = detail.message
+            binding.tvName.text = "Name: ${detail.name}"
+            binding.tvPhone1.text = "Phone 1: ${detail.phoneNo1}"
+            binding.tvPhone2.text = "Phone 2: ${detail.phoneNo2}"
+            binding.tvMsg.text = "Message: \n${detail.message}"
         }
     }
 }

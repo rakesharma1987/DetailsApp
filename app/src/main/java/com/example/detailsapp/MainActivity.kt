@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         fragmetnTransaction.commit()
 
         binding.btnMoreFileds.setBackgroundColor(getColor(R.color.btn_non_selected_color))
+        binding.btnSimpleFileds.setBackgroundColor(getColor(R.color.btn_selected_color))
 
         binding.btnSimpleFileds.setOnClickListener(this)
         binding.btnMoreFileds.setOnClickListener(this)
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (view!!.id) {
             R.id.btn_simple_fileds -> {
                 binding.btnMoreFileds.setBackgroundColor(getColor(R.color.btn_non_selected_color))
-                binding.btnSimpleFileds.setBackgroundColor(getColor(R.color.purple_500))
+                binding.btnSimpleFileds.setBackgroundColor(getColor(R.color.btn_selected_color))
 
                 var fragmetnTransaction = fragmentManager.beginTransaction()
                 for (fragment in fragmentManager.fragments){
@@ -117,7 +118,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.btn_more_fileds -> {
-                binding.btnMoreFileds.setBackgroundColor(getColor(R.color.purple_500))
+                binding.btnMoreFileds.setBackgroundColor(getColor(R.color.btn_selected_color))
                 binding.btnSimpleFileds.setBackgroundColor(getColor(R.color.btn_non_selected_color))
                 var fragmetnTransaction1 = fragmentManager.beginTransaction()
                 for (fragment in fragmentManager.fragments){
