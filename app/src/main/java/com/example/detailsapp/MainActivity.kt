@@ -21,6 +21,9 @@ import com.example.detailsapp.db.AppDatabase
 import com.example.detailsapp.db.Details
 import com.example.detailsapp.fragments.MoreFiledsFragment
 import com.example.detailsapp.fragments.SimpleFieldsFragment
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -30,10 +33,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var fragmentManager: FragmentManager
     private var isAddSimpleFields: Boolean = false
     private var isAddMoreFields: Boolean = false
+    lateinit var interstitialAd: InterstitialAd
+    lateinit var adRequest: AdRequest
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        MobileAds.initialize(this)
+        adRequest = AdRequest.Builder().build()
+        interstitialAd = InterstitialAd(this)
+        interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        interstitialAd.loadAd(adRequest)
 
         val dao = AppDatabase.getInstance(this).dao
         factory = AppFactory(AppRepository(dao))
@@ -49,6 +60,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnSimpleFileds.setOnClickListener(this)
         binding.btnMoreFileds.setOnClickListener(this)
         binding.btnProVersion.setOnClickListener(this)
+    }
+
+    private fun displayInterstitialAd(interstitialAd: InterstitialAd) {
+        if (interstitialAd.isLoaded) {
+            interstitialAd.show()
+        }
     }
 
     override fun onClick(view: View?) {
