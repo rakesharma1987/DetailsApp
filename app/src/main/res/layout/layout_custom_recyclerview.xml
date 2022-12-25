@@ -14,7 +14,8 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="1dp"
         android:layout_margin="5dp"
-        app:cardPreventCornerOverlap="false">
+        app:cardPreventCornerOverlap="false"
+        android:theme="@style/Theme.MaterialComponents.Light">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,7 +33,7 @@
                 android:layout_marginLeft="5dp"
                 android:textSize="@dimen/txt_size"
                 android:fontFamily="@font/lato_bold"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
 
             <Button
                 android:layout_width="wrap_content"

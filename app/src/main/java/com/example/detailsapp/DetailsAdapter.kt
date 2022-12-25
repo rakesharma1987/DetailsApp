@@ -29,10 +29,16 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val random = Random()
-        val currectColor =
-            Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
-        holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(currectColor)
+//        val random = Random()
+//        val currectColor =
+//            Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+//        holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(currectColor)
+        if(position % 2 == 0){
+            holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(context.getColor(R.color.card_background_color_even))
+        }else{
+            holder.layoutCustomRecyclerviewBinding.cardView.setCardBackgroundColor(context.getColor(R.color.card_background_color_odd))
+        }
+
         val details = detailsList[position]
         holder.layoutCustomRecyclerviewBinding.tvDetails.text = "${details.name}"
 

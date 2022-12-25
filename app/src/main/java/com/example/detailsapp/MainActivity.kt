@@ -39,7 +39,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+//        setSupportActionBar(binding.myToolbar)
+//        binding.toolbarTitle.text = "Personal Details"
 
+        supportActionBar!!.title = "Personal Details"
         MobileAds.initialize(this)
         adRequest = AdRequest.Builder().build()
         interstitialAd = InterstitialAd(this)
