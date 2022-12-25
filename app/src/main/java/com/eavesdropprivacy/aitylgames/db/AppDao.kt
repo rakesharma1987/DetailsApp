@@ -1,4 +1,4 @@
-package com.example.detailsapp.db
+package com.eavesdropprivacy.aitylgames.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

@@ -1,8 +1,8 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.detailsapp.db.Details
+import com.eavesdropprivacy.aitylgames.db.Details
 import kotlinx.coroutines.launch
 
 class AppViewModel(private val appRepository: AppRepository): ViewModel() {

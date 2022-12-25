@@ -1,11 +1,11 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View.GONE
 import androidx.databinding.DataBindingUtil
-import com.example.detailsapp.databinding.ActivityDetailsBinding
-import com.example.detailsapp.db.Details
+import com.eavesdropprivacy.aitylgames.databinding.ActivityDetailsBinding
+import com.eavesdropprivacy.aitylgames.db.Details
 import com.google.gson.Gson
 
 class DetailsActivity : AppCompatActivity() {

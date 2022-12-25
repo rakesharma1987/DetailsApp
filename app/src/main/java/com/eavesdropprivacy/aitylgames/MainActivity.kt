@@ -1,4 +1,4 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
 import android.os.Bundle
 import android.view.View
@@ -8,18 +8,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.android.billingclient.api.*
-import com.android.billingclient.api.BillingClient.ProductType.INAPP
-import com.example.detailsapp.GooglePlayBillingPreferences.isPurchased
-import com.example.detailsapp.GooglePlayBillingPreferences.savePurchaseValueToPref
-import com.example.detailsapp.Security.verifyPurchase
-import com.example.detailsapp.databinding.ActivityMainBinding
-import com.example.detailsapp.db.AppDatabase
-import com.example.detailsapp.fragments.MoreFiledsFragment
-import com.example.detailsapp.fragments.SimpleFieldsFragment
+import com.eavesdropprivacy.aitylgames.GooglePlayBillingPreferences.isPurchased
+import com.eavesdropprivacy.aitylgames.GooglePlayBillingPreferences.savePurchaseValueToPref
+import com.eavesdropprivacy.aitylgames.databinding.ActivityMainBinding
+import com.eavesdropprivacy.aitylgames.db.AppDatabase
+import com.eavesdropprivacy.aitylgames.fragments.MoreFiledsFragment
+import com.eavesdropprivacy.aitylgames.fragments.SimpleFieldsFragment
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
-import java.io.IOException
 
 // TODO: HELP - BILLING LIBRARY LINK
 // https://programtown.com/how-to-make-in-app-purchase-in-android-kotlin-using-google-play-billing-library/

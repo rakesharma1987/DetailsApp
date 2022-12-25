@@ -1,4 +1,4 @@
-package com.example.detailsapp.db
+package com.eavesdropprivacy.aitylgames.db
 
 import android.content.Context
 import androidx.room.Database

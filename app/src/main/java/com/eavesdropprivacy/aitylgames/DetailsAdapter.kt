@@ -1,22 +1,18 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.view.*
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.detailsapp.databinding.LayoutCustomRecyclerviewBinding
-import com.example.detailsapp.databinding.LayoutSampleFieldsBinding
-import com.example.detailsapp.db.Details
+import com.eavesdropprivacy.aitylgames.databinding.LayoutCustomRecyclerviewBinding
+import com.eavesdropprivacy.aitylgames.databinding.LayoutSampleFieldsBinding
+import com.eavesdropprivacy.aitylgames.db.Details
 import com.google.gson.Gson
 import java.util.Calendar
-import java.util.Random
-import javax.xml.datatype.DatatypeConstants.MONTHS
 
 class DetailsAdapter(private val context: Context, private val detailsList: List<Details>): RecyclerView.Adapter<DetailsAdapter.CustomViewHolder>() {
     inner class CustomViewHolder(val layoutCustomRecyclerviewBinding: LayoutCustomRecyclerviewBinding): RecyclerView.ViewHolder(layoutCustomRecyclerviewBinding.root)

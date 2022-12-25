@@ -1,4 +1,4 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
 import android.content.Context
 import android.content.SharedPreferences

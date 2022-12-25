@@ -1,4 +1,4 @@
-package com.example.detailsapp;
+package com.eavesdropprivacy.aitylgames;
 
 import android.text.TextUtils;
 import android.util.Base64;

@@ -1,4 +1,4 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

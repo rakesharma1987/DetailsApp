@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.detailsapp'
+    namespace 'com.eavesdropprivacy.aitylgames'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.detailsapp"
+        applicationId "com.eavesdropprivacy.aitylgames"
         minSdk 23
         targetSdk 32
         versionCode 1

@@ -1,7 +1,7 @@
-package com.example.detailsapp
+package com.eavesdropprivacy.aitylgames
 
-import com.example.detailsapp.db.AppDao
-import com.example.detailsapp.db.Details
+import com.eavesdropprivacy.aitylgames.db.AppDao
+import com.eavesdropprivacy.aitylgames.db.Details
 
 class AppRepository(private val appDao: AppDao) {
     val allDetails = appDao.getAllData()

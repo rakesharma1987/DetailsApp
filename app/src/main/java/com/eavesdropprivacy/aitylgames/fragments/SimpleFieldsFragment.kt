@@ -1,4 +1,4 @@
-package com.example.detailsapp.fragments
+package com.eavesdropprivacy.aitylgames.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,10 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.detailsapp.*
-import com.example.detailsapp.databinding.FragmentSimpleFieldsBinding
-import com.example.detailsapp.db.AppDatabase
-import com.example.detailsapp.db.Details
+import com.eavesdropprivacy.aitylgames.*
+import com.eavesdropprivacy.aitylgames.databinding.FragmentSimpleFieldsBinding
+import com.eavesdropprivacy.aitylgames.db.AppDatabase
+import com.eavesdropprivacy.aitylgames.db.Details
 
 class SimpleFieldsFragment : Fragment() {
     private lateinit var binding: FragmentSimpleFieldsBinding
