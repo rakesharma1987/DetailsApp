@@ -5,19 +5,23 @@
     <data>
 
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="0dp">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".DetailsActivity"
         android:layout_margin="10dp"
         android:background="@drawable/big_card"
-        android:backgroundTint="#FFFFFF">
+        android:backgroundTint="#FFFFFF"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_msg"
-            app:layout_constraintTop_toTopOf="parent"
             android:textSize="@dimen/big_txt_size"
             android:text="Message"
             android:layout_margin="20dp"
@@ -30,14 +34,12 @@
             android:id="@+id/tv_line_below_msg"
             android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_msg"
             android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_email"
-            app:layout_constraintTop_toBottomOf="@id/tv_line_below_msg"
             android:textSize="@dimen/big_txt_size"
             android:text="Email"
             android:layout_margin="20dp"
@@ -50,14 +52,12 @@
             android:id="@+id/tv_line_below_email"
             android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_email"
             android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_phone1"
-            app:layout_constraintTop_toBottomOf="@id/tv_line_below_email"
             android:textSize="@dimen/big_txt_size"
             android:text="Phone 1"
             android:layout_margin="20dp"
@@ -68,7 +68,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_phone2"
-            app:layout_constraintTop_toBottomOf="@id/tv_phone1"
             android:textSize="@dimen/big_txt_size"
             android:text="Phone 2"
             android:layout_marginLeft="20dp"
@@ -83,14 +82,12 @@
             android:id="@+id/tv_line_below_phone"
             android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_phone2"
             android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_address"
-            app:layout_constraintTop_toBottomOf="@id/tv_line_below_phone"
             android:textSize="@dimen/big_txt_size"
             android:text="Address"
             android:layout_margin="20dp"
@@ -103,13 +100,11 @@
             android:id="@+id/tv_line_below_address"
             android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_address"
             android:layout_marginTop="20dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_dob"
-            app:layout_constraintTop_toBottomOf="@id/tv_line_below_address"
             android:textSize="@dimen/big_txt_size"
             android:text="DOB"
             android:layout_margin="20dp"
@@ -121,18 +116,17 @@
             android:id="@+id/tv_line_below_dob"
             android:background="@drawable/layout_dash_line"
             android:fontFamily="@font/lato_bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_dob"
             android:layout_marginTop="20dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_line_below_dob"
             android:textSize="@dimen/big_txt_size"
             android:text="Name"
             android:layout_margin="20dp"
             android:fontFamily="@font/lato_bold"
             android:textColor="@color/black"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    </ScrollView>
 </layout>
