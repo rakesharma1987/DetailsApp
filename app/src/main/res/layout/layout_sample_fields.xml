@@ -166,13 +166,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_submit"
                 android:text="Save"
                 android:layout_below="@id/til_message"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
+                android:layout_centerHorizontal="true"
                 android:fontFamily="@font/lato_bold"
                 android:textSize="@dimen/big_txt_size"/>
         </RelativeLayout>
