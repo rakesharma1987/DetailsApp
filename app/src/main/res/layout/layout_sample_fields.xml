@@ -69,7 +69,7 @@
                     android:inputType="phone"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="@dimen/txt_size"
-                    android:maxLength="10"/>
+                    android:maxLength="15"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -78,6 +78,7 @@
                 android:id="@+id/til_phone_2"
                 android:layout_below="@id/til_phone_1"
                 android:hint="Phone 2"
+                android:layout_marginTop="10dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                 <EditText
@@ -86,7 +87,7 @@
                     android:inputType="phone"
                     android:fontFamily="@font/lato_regular"
                     android:textSize="@dimen/txt_size"
-                    android:maxLength="10"/>
+                    android:maxLength="15"/>
             </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -160,7 +161,8 @@
                     android:inputType="textMultiLine"
                     android:maxLines="5"
                     android:fontFamily="@font/lato_regular"
-                    android:textSize="@dimen/txt_size"/>
+                    android:textSize="@dimen/txt_size"
+                    android:maxLength="60"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

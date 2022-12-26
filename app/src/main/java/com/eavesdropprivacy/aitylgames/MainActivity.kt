@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         GooglePlayBillingPreferences.init(this)
         if (isPurchased()) {
-            binding.btnProVersion.text = "Remove Ads"
+            binding.btnProVersion.text = "Remove\nAds"
             binding.btnProVersion.isClickable = false
         } else {
             binding.btnProVersion.text = "Pro Version"
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                         handlePurchases(purchases)
                     }
                     savePurchaseValueToPref(true)
-                    binding.btnProVersion.text = "Remove Ads"
+                    binding.btnProVersion.text = "Remove\nAds"
                 }else if(billingResult.responseCode == BillingClient.BillingResponseCode.USER_CANCELED){
                     savePurchaseValueToPref(false)
                     binding.btnProVersion.text = "Pro Version"
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                                     ).responseCode
                                     if (responseCode == 0) {
                                         savePurchaseValueToPref(true)
-                                        binding.btnProVersion.text = "Remove Ads"
+                                        binding.btnProVersion.text = "Remove\nAds"
                                     }
                                 }
                             }

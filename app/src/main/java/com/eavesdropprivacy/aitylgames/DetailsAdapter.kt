@@ -72,7 +72,7 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
 
 
                     val dpd = DatePickerDialog(context, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                        sampleFields.tilDob.editText!!.setText("" + dayOfMonth + "/" + dayOfMonth.plus(1) + "/" + year)
+                        sampleFields.tilDob.editText!!.setText("" + dayOfMonth + "/" + monthOfYear.plus(1) + "/" + year)
 
                     }, year, month, day)
 

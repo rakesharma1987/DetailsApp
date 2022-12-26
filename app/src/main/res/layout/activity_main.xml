@@ -10,25 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-<!--        <com.google.android.material.appbar.AppBarLayout-->
-<!--            android:id="@+id/appBar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            tools:ignore="MissingConstraints">-->
-<!--            <androidx.appcompat.widget.Toolbar-->
-<!--                android:id="@+id/my_toolbar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="?attr/actionBarSize"-->
-<!--                >-->
-<!--                <TextView-->
-<!--                    android:id="@+id/toolbar_title"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="@dimen/txt_size"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    />-->
-<!--            </androidx.appcompat.widget.Toolbar>-->
-<!--        </com.google.android.material.appbar.AppBarLayout>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,35 +21,40 @@
                 android:id="@+id/btn_simple_fileds"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:text="Simple Fields"
-                android:textSize="8sp"
+                android:text="Simple\nFields"
+                android:textSize="@dimen/txt_size"
                 android:layout_weight="1"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
-                android:fontFamily="@font/lato_regular"/>
+                android:fontFamily="@font/lato_regular"
+                android:textStyle="bold"
+                />
 
             <Button
                 android:id="@+id/btn_more_fileds"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:text="More Fields"
-                android:textSize="8sp"
+                android:text="More\nFields"
+                android:textSize="@dimen/txt_size"
                 android:layout_weight="1"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
-                android:fontFamily="@font/lato_regular"/>
+                android:fontFamily="@font/lato_regular"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btn_pro_version"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:text="Pro Version"
-                android:textSize="8sp"
+                android:text="Pro\nVersion"
+                android:textSize="@dimen/txt_size"
                 android:layout_weight="1"
                 android:layout_marginLeft="1dp"
                 android:layout_marginRight="1dp"
                 android:fontFamily="@font/lato_regular"
-                android:backgroundTint="#8D72E1"/>
+                android:backgroundTint="#8D72E1"
+                android:textStyle="bold"
+                />
         </LinearLayout>
 
 <!--        <androidx.recyclerview.widget.RecyclerView-->
