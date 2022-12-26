@@ -52,7 +52,8 @@
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
                     android:fontFamily="@font/lato_regular"
-                    android:textSize="@dimen/txt_size"/>
+                    android:textSize="@dimen/txt_size"
+                    android:maxLength="20"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
