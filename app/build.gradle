@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
-
+// Apk jks pass - eavesdropprivacy123
 android {
     namespace 'com.eavesdropprivacy.aitylgames'
     compileSdk 32
