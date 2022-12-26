@@ -136,6 +136,5 @@
             android:layout_margin="20dp"
             android:fontFamily="@font/lato_bold"
             android:textColor="@color/black"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
