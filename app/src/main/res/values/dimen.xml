@@ -2,4 +2,5 @@
 <resources>
     <dimen name="txt_size">18sp</dimen>
     <dimen name="big_txt_size">22sp</dimen>
+    <dimen name="btn_text_size">14sp</dimen>
 </resources>

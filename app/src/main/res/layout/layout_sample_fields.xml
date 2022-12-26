@@ -173,7 +173,7 @@
                 android:layout_below="@id/til_message"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/lato_bold"
-                android:textSize="@dimen/big_txt_size"/>
+                android:textSize="@dimen/btn_text_size"/>
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
