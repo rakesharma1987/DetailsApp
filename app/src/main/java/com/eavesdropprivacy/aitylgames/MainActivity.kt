@@ -15,8 +15,10 @@ import com.eavesdropprivacy.aitylgames.db.AppDatabase
 import com.eavesdropprivacy.aitylgames.fragments.MoreFiledsFragment
 import com.eavesdropprivacy.aitylgames.fragments.SimpleFieldsFragment
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 // TODO: HELP - BILLING LIBRARY LINK
 // https://programtown.com/how-to-make-in-app-purchase-in-android-kotlin-using-google-play-billing-library/
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     private lateinit var fragmentManager: FragmentManager
     private var isAddSimpleFields: Boolean = false
     private var isAddMoreFields: Boolean = false
-    lateinit var interstitialAd: InterstitialAd
+    var interstitialAd: InterstitialAd? = null
     lateinit var adRequest: AdRequest
     private lateinit var billingClient: BillingClient
     lateinit var skulList: ArrayList<String>
@@ -48,9 +50,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         supportActionBar!!.title = "Personal Details"
         MobileAds.initialize(this)
         adRequest = AdRequest.Builder().build()
-        interstitialAd = InterstitialAd(this)
-        interstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
-        interstitialAd.loadAd(adRequest)
+//        interstitialAd = InterstitialAd(this)
+//        interstitialAd.adUnitId = getString(R.string.ad_unit_id)
+//        interstitialAd.loadAd(adRequest)
+        InterstitialAd.load(this, getString(R.string.ad_unit_id), adRequest,
+        object : InterstitialAdLoadCallback(){
+            override fun onAdFailedToLoad(p0: LoadAdError) {
+                super.onAdFailedToLoad(p0)
+                Toast.makeText(this@MainActivity, "p0.message ${p0.code}", Toast.LENGTH_SHORT).show()
+                interstitialAd = null
+            }
+
+            override fun onAdLoaded(ia: InterstitialAd) {
+                super.onAdLoaded(ia)
+                interstitialAd = ia
+            }
+        })
 
         val dao = AppDatabase.getInstance(this).dao
         factory = AppFactory(AppRepository(dao))
@@ -88,7 +103,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             .build()
 
         skulList = ArrayList<String>()
-        skulList.add("android.test.purchased")
+        skulList.add("eavesdroppingnoads") // android.test.purchased
 
         billingClient.startConnection(object : BillingClientStateListener {
             override fun onBillingSetupFinished(billingResult: BillingResult) {
@@ -101,12 +116,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                 // Google Play by calling the startConnection() method.
             }
         })
-    }
-
-    private fun displayInterstitialAd(interstitialAd: InterstitialAd) {
-        if (interstitialAd.isLoaded) {
-            interstitialAd.show()
-        }
     }
 
     override fun onClick(view: View?) {

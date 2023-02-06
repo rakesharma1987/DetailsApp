@@ -39,8 +39,8 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
         holder.layoutCustomRecyclerviewBinding.tvDetails.text = "${details.name}"
 
         holder.layoutCustomRecyclerviewBinding.btnShow.setOnClickListener {
-            if (GooglePlayBillingPreferences.isPurchased()) {
-                (context as MainActivity).interstitialAd.show()
+            if (!GooglePlayBillingPreferences.isPurchased()) {
+                (context as MainActivity).interstitialAd?.show(context)
             }
             val intent = Intent(context, DetailsActivity::class.java)
             intent.putExtra("DATA", Gson().toJson(details))
@@ -48,7 +48,7 @@ class DetailsAdapter(private val context: Context, private val detailsList: List
         }
         holder.layoutCustomRecyclerviewBinding.btnEdit.setOnClickListener {
             if (!GooglePlayBillingPreferences.isPurchased()) {
-                (context as MainActivity).interstitialAd.show()
+                (context as MainActivity).interstitialAd?.show(context)
             }
 
             val dialog = Dialog(context)
